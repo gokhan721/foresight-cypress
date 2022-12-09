@@ -19,4 +19,9 @@ app.get('/hello', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/uncovered', (req, res) => {
+  console.log('sending uncovered')
+  res.send('uncovered!')
+})
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
