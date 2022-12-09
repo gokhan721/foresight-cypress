@@ -43,9 +43,3 @@ jobs:
         test_path: ./results/foresight-test-*.xml
         coverage_format: LCOV/TXT
         coverage_path: ./coverage/lcov.info
-    
-    - name: Upload Test Results
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        path: ./
