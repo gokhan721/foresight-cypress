@@ -45,6 +45,6 @@ jobs:
         coverage_path: ./coverage/lcov.info
     
     - name: Upload Test Results
-        if: ${{ failure() || success() }}
+        if: always()
         continue-on-error: true
         uses: actions/upload-artifact@v3
