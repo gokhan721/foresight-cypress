@@ -33,14 +33,9 @@ jobs:
       - name: Cypress tests
         run: npm run test
 
-      - name: Thundra Registry
-        run: |
-          npm config set registry ${{ secrets.THUNDRA_REGISTRY }}
-          npm config set _auth ${{ secrets.THUNDRA_REGISTRY_AUTH }}
-
       - name: Analyze Test and/or Coverage Results
         if: always()
-        uses: runforesight/foresight-test-kit-action@added-git-path
+        uses: runforesight/foresight-test-kit-action@v1
         with:
           api_key: ${{ secrets.FORESIGHT_APIKEY_US }}
           test_framework: cypress
@@ -48,5 +43,3 @@ jobs:
           test_path: ./results/foresight-test-*.xml
           coverage_format: LCOV/TXT
           coverage_path: ./coverage/lcov.info
-          git_base_path: ./coverage
-          cli_version: 123.457.992
