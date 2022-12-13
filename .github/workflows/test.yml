@@ -34,15 +34,15 @@ jobs:
       - name: Cypress tests
         run: npm run test
       
-      # - name: Remove git folder
-      #   run: |
-      #     echo "Githob workspace $GITHUB_WORKSPACE"
-      #     echo "Listing files in $GITHUB_WORKSPACE ..."
-      #     ls -al $GITHUB_WORKSPACE
-      #     echo "Removing $GITHUB_WORKSPACE/.git ..."
-      #     rm -rf $GITHUB_WORKSPACE/.git
-      #     echo "Listing files in $GITHUB_WORKSPACE ..."
-      #     ls -al $GITHUB_WORKSPACE
+      - name: Remove git folder
+        run: |
+         echo "Githob workspace $GITHUB_WORKSPACE"
+         echo "Listing files in $GITHUB_WORKSPACE ..."
+         ls -al $GITHUB_WORKSPACE
+         echo "Removing $GITHUB_WORKSPACE/.git ..."
+         rm -rf $GITHUB_WORKSPACE/.git
+         echo "Listing files in $GITHUB_WORKSPACE ..."
+         ls -al $GITHUB_WORKSPACE
 
       - name: Thundra Registry
         run: |
