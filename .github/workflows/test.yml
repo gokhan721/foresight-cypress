@@ -59,4 +59,5 @@ jobs:
           test_path: ./results/foresight-test-*.xml
           coverage_format: LCOV/TXT
           coverage_path: ./coverage/lcov.info
+          working_directory: ./
           cli_version: 123.457.2
