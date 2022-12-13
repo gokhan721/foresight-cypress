@@ -56,8 +56,8 @@ jobs:
           api_key: ${{ secrets.FORESIGHT_APIKEY_US }}
           test_framework: cypress
           test_format: junit
-          test_path: ./results/foresight-test-*.xml
+          test_path: ../results/foresight-test-*.xml
           coverage_format: LCOV/TXT
-          coverage_path: ./coverage/lcov.info
-          working_directory: ./coverage
+          coverage_path: ../coverage/lcov.info
+          working_directory: ./server
           cli_version: 123.457.2
