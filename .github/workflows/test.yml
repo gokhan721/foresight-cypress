@@ -34,20 +34,15 @@ jobs:
       - name: Cypress tests
         run: npm run test
       
-      # - name: Remove git folder
-      #   run: |
-      #     echo "Githob workspace $GITHUB_WORKSPACE"
-      #     echo "Listing files in $GITHUB_WORKSPACE ..."
-      #     ls -al $GITHUB_WORKSPACE
-      #     echo "Removing $GITHUB_WORKSPACE/.git ..."
-      #     rm -rf $GITHUB_WORKSPACE/.git
-      #     echo "Listing files in $GITHUB_WORKSPACE ..."
-      #     ls -al $GITHUB_WORKSPACE
-
-      - name: Thundra Registry
+      - name: Remove git folder
         run: |
-          npm config set registry ${{ secrets.THUNDRA_REGISTRY }}
-          npm config set _auth ${{ secrets.THUNDRA_REGISTRY_AUTH }}
+          echo "Githob workspace $GITHUB_WORKSPACE"
+          echo "Listing files in $GITHUB_WORKSPACE ..."
+          ls -al $GITHUB_WORKSPACE
+          echo "Removing $GITHUB_WORKSPACE/.git ..."
+          rm -rf $GITHUB_WORKSPACE/.git
+          echo "Listing files in $GITHUB_WORKSPACE ..."
+          ls -al $GITHUB_WORKSPACE
 
       - name: Analyze Test and/or Coverage Results
         if: always()
@@ -59,4 +54,3 @@ jobs:
           test_path: ./results/foresight-test-*.xml
           coverage_format: LCOV/TXT
           coverage_path: ./coverage/lcov.info
-          cli_version: 123.457.5
