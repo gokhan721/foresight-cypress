@@ -1,4 +1,4 @@
-name: Cypress tests
+name: Cypress tests With Git File
 
 on: 
   workflow_dispatch:
