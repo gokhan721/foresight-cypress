@@ -32,7 +32,7 @@ jobs:
           npm install
       
       - name: Cypress tests
-        run: npm run test |& tee results.txt
+        run: npm run test |& tee results.json
       
       # - name: Remove git folder
       #   run: |
@@ -43,14 +43,20 @@ jobs:
       #     rm -rf $GITHUB_WORKSPACE/.git
       #     echo "Listing files in $GITHUB_WORKSPACE ..."
       #     ls -al $GITHUB_WORKSPACE
-
+    - run: npm test
+    - name: Thundra Registry
+      if: ${{ always() }}
+      run: |
+        npm config set registry ${{ secrets.THUNDRA_REGISTRY }}
+        npm config set _auth ${{ secrets.THUNDRA_REGISTRY_AUTH }}
       - name: Analyze Test and/or Coverage Results
         if: always()
         uses: runforesight/foresight-test-kit-action@v1
         with:
           api_key: ${{ secrets.FORESIGHT_APIKEY_US }}
-          test_framework: cypress
-          test_format: json
-          test_path: ./results.txt
+          test_framework: CYPRESS
+          test_format: JSON
+          test_path: ./results.json
           coverage_format: LCOV/TXT
           coverage_path: ./coverage/lcov.info
+          cli_version: 123.457.999
