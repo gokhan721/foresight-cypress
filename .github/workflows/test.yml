@@ -32,7 +32,7 @@ jobs:
           npm install
       
       - name: Cypress tests
-        run: npm run test |& tee results.json
+        run: npm run test |& tee results.txt
       
       # - name: Remove git folder
       #   run: |
@@ -55,7 +55,7 @@ jobs:
           api_key: ${{ secrets.FORESIGHT_APIKEY_US }}
           test_framework: CYPRESS
           test_format: JSON
-          test_path: ./results.json
+          test_path: ./results.txt
           coverage_format: LCOV/TXT
           coverage_path: ./coverage/lcov.info
           cli_version: 123.457.999
