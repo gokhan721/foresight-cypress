@@ -4,7 +4,7 @@
   "scripts": {
     "prestart": "./node_modules/.bin/parcel build index.html",
     "start": "./node_modules/.bin/nyc --silent node server/server",
-    "cy:run": "./node_modules/.bin/cypress run --config video=false --reporter junit --reporter-options 'mochaFile=results/foresight-test-[hash].xml'",
+    "cy:run": "./node_modules/.bin/cypress run --config video=false  --reporter json --reporter-options output='json-result-[hash].json'",
     "pretest": "rimraf .nyc_output .cache coverage dist",
     "test": "./node_modules/.bin/start-test 1234 cy:run",
     "coverage:verify": "npx nyc report --reporter lcov --check-coverage true --lines 100",
