@@ -43,12 +43,11 @@ jobs:
       #     rm -rf $GITHUB_WORKSPACE/.git
       #     echo "Listing files in $GITHUB_WORKSPACE ..."
       #     ls -al $GITHUB_WORKSPACE
-    - run: npm test
-    - name: Thundra Registry
-      if: ${{ always() }}
-      run: |
-        npm config set registry ${{ secrets.THUNDRA_REGISTRY }}
-        npm config set _auth ${{ secrets.THUNDRA_REGISTRY_AUTH }}
+      - name: Thundra Registry
+        if: ${{ always() }}
+        run: |
+          npm config set registry ${{ secrets.THUNDRA_REGISTRY }}
+          npm config set _auth ${{ secrets.THUNDRA_REGISTRY_AUTH }}
       - name: Analyze Test and/or Coverage Results
         if: always()
         uses: runforesight/foresight-test-kit-action@v1
