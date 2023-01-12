@@ -50,7 +50,7 @@ jobs:
           npm config set _auth ${{ secrets.THUNDRA_REGISTRY_AUTH }}
       - name: Analyze Test and/or Coverage Results
         if: always()
-        uses: runforesight/foresight-test-kit-action@v1
+        uses: runforesight/foresight-test-kit-action@fix/run-cli-locally
         with:
           api_key: ${{ secrets.FORESIGHT_APIKEY_US }}
           test_framework: CYPRESS
@@ -58,4 +58,3 @@ jobs:
           test_path: ./results.txt
           coverage_format: LCOV/TXT
           coverage_path: ./coverage/lcov.info
-          cli_version: 123.457.999
